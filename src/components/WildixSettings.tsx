@@ -1,48 +1,45 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Button, Input, Title, Subtitle } from '@reapit/elements'
+import React, { useState, ChangeEvent } from 'react'
+import { Button, Title, Subtitle, Input } from '@reapit/elements'
 
 const WildixSettings: React.FC = () => {
-  const navigate = useNavigate()
-  const [subdomain, setSubdomain] = useState(localStorage.getItem('wildixSubdomain') ?? '')
-  const [error, setError] = useState<string | null>(null)
+  const [subdomain, setSubdomain] = useState(() => localStorage.getItem('wildixSubdomain') || '')
+  const [clientId, setClientId] = useState(() => localStorage.getItem('wildixClientId') || '')
 
   const handleConnect = () => {
-    if (!subdomain) {
-      setError('Please enter your PBX subdomain.')
+    if (!subdomain || !clientId) {
+      alert('Please enter both subdomain and client ID.')
       return
     }
 
-    // Store the subdomain
     localStorage.setItem('wildixSubdomain', subdomain)
+    localStorage.setItem('wildixClientId', clientId)
 
-    // Redirect to Wildix OAuth2.0 authorize endpoint
-    const clientId = 'oauth2-reapit-0096147001744041740' // <-- Replace this
     const redirectUri = encodeURIComponent('https://reapit.storah.info/wildix-callback')
     const authUrl = `https://${subdomain}.wildixin.com/authorization/oauth2?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
-    
+
     window.location.href = authUrl
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '600px', margin: '0 auto' }}>
-      <Title>Wildix Settings</Title>
-      <Subtitle>Connect your PBX and authenticate via OAuth2.0</Subtitle>
+    <div style={{ padding: '2rem', maxWidth: 600, margin: '0 auto' }}>
+      <Title>Wildix Setup</Title>
+      <Subtitle>Enter your Wildix PBX subdomain and OAuth client ID</Subtitle>
 
-      <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500 }}>
-        PBX Subdomain
-      </label>
+      <label style={{ display: 'block', marginBottom: '0.5rem' }}>PBX Subdomain</label>
       <Input
         placeholder="e.g. mycompany"
         value={subdomain}
-        onChange={(e) => setSubdomain(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setSubdomain(e.target.value)}
       />
 
-      {error && (
-        <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>
-      )}
+      <label style={{ display: 'block', margin: '1rem 0 0.5rem' }}>OAuth Client ID</label>
+      <Input
+        placeholder="Paste your Wildix OAuth client ID"
+        value={clientId}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setClientId(e.target.value)}
+      />
 
-      <Button style={{ marginTop: '2rem' }} intent="primary" onClick={handleConnect}>
+      <Button intent="primary" style={{ marginTop: '1.5rem' }} onClick={handleConnect}>
         Connect to Wildix
       </Button>
     </div>
