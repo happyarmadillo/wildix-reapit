@@ -15,7 +15,7 @@ const WildixSettings: React.FC = () => {
     localStorage.setItem('wildixClientId', clientId)
 
     const redirectUri = encodeURIComponent('https://reapit.storah.info/wildix-callback')
-    const authUrl = `https://${subdomain}.wildixin.com/authorization/oauth2?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
+    const authUrl = `https://${subdomain}.wildixin.com/authorization/oauth2?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`
 
     window.location.href = authUrl
   }
@@ -23,7 +23,7 @@ const WildixSettings: React.FC = () => {
   return (
     <div style={{ padding: '2rem', maxWidth: 600, margin: '0 auto' }}>
       <Title>Wildix Setup</Title>
-      <Subtitle>Enter your Wildix PBX subdomain and OAuth client ID</Subtitle>
+      <Subtitle>Enter your Wildix PBX subdomain and OAuth Client ID</Subtitle>
 
       <label style={{ display: 'block', marginBottom: '0.5rem' }}>PBX Subdomain</label>
       <Input
