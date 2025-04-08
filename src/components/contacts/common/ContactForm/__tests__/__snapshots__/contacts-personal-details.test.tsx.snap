@@ -1,0 +1,152 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContactsPersonal > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-93 el-snack-holder"
+  />
+  <p
+    class="el-text-base el-body-text el-has-bold-text el-has-section-margin"
+  >
+    Provide us with some basic personal information about your contact.
+  </p>
+  <div
+    class="el-fade-in el-form-layout"
+  >
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <div
+        class="mocked-styled-40 el-input-group"
+      >
+        <select
+          aria-label="Select an item from the dropdown list"
+          class="mocked-styled-83 el-select"
+        >
+          <option
+            value=""
+          >
+            None selected
+          </option>
+          <option
+            value="Mr"
+          >
+            Mr
+          </option>
+          <option
+            value="Mrs"
+          >
+            Mrs
+          </option>
+          <option
+            value="Ms"
+          >
+            Ms
+          </option>
+          <option
+            value="Miss"
+          >
+            Miss
+          </option>
+          <option
+            value="Mx"
+          >
+            Mx
+          </option>
+          <option
+            value="Dr"
+          >
+            Dr
+          </option>
+          <option
+            value="Prof"
+          >
+            Prof
+          </option>
+        </select>
+        <label
+          class="mocked-styled-41 el-label"
+        >
+          Please select a title
+        </label>
+        <p
+          class="mocked-styled-42 el-input-error"
+        >
+          Error
+        </p>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <div
+        class="mocked-styled-40 el-input-group"
+      >
+        <input
+          aria-label="Input type undefined"
+          class="mocked-styled-38 el-input"
+          id="test-static-id"
+          placeholder="Please enter a first name"
+        />
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
+        >
+          First Name
+        </label>
+      </div>
+    </div>
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <div
+        class="mocked-styled-40 el-input-group"
+      >
+        <input
+          aria-label="Input type undefined"
+          class="el-has-input-error el-input"
+          id="test-static-id"
+          placeholder="Please enter a surname"
+        />
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
+        >
+          Surname
+        </label>
+      </div>
+      <p
+        class="mocked-styled-42 el-input-error"
+      >
+        Error
+      </p>
+    </div>
+    <div
+      class="mocked-styled-133 el-input-wrap"
+    >
+      <div
+        class="mocked-styled-40 el-input-group"
+      >
+        <input
+          aria-label="Input type date format dd/mm/yyy max date of 2023-01-01"
+          class="el-has-input-error el-input"
+          id="test-static-id"
+          max="2023-01-01"
+          type="date"
+        />
+        <label
+          class="mocked-styled-41 el-label"
+          for="test-static-id"
+        >
+          Date of birth
+        </label>
+      </div>
+      <p
+        class="mocked-styled-42 el-input-error"
+      >
+        Error
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
